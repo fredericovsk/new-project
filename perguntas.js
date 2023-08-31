@@ -148,104 +148,65 @@ generateTextInputQuestion(
   "meuform"
 );
 
-generateTextInputQuestion(
-  "Qual é o nome do seu coletivo ou iniciativa?  <span class='simples'> Obrigatório</span>",
-  "meuform"
-);
-
-generateDropdownQuestion(
-  "Em qual estado vocês atuam? <span class='simples'>Obrigatório</span>",
-  states,
-  "meuform"
-);
-
-generateTextInputQuestion(
-  "Em qual cidade vocês atuam? <span class='simples'>Obrigatório</span>",
-  "meuform"
-);
-
-// Inserir um Google maps api
-generateTextInputQuestion(
-  "Qual o endereço local onde vocês desenvolvem as atividades? <span class='simples'>Obrigatório</span>",
-  "meuform"
-);
-
-generateTextInputQuestion(
-  "Há quanto tempo seu coletivo está ativo?",
-  "meuform"
-);
-
-generateCheckboxQuestion(
-  "Seu coletivo/inciativa desenvolve expressões como:",
-  ["Música", "Dança", "Artes Visuais", "Literatura", "Outras"],
-  "meuform"
-);
-
 generateRadioQuestion(
-  "Essas culturas contribuem para a identidade local e nacional?",
+  "Você integra algum coletivo ou iniciativa relacionada à área da cultura?",
   ["Sim", "Não"],
   "meuform"
 );
 
+// Limitar à 20 letras
 generateTextInputQuestion(
-  "Seu coletivo interage com a comunidade local e outras iniciativas culturais na região?",
+  "Qual a primeira palavra que vem a cabeça ao pensar em cultura e cidade?",
+  "meuform"
+);
+
+generateCheckboxQuestion(
+  "Ao pensar em Cultura Popular Urbana, com o que mais você a relaciona?",
+  [
+    "Bailes funks",
+    "Festas juninas",
+    "Shows gratuitos em praças",
+    "Grupos culturais urbanos como grafites, danças urbanas",
+    "Festivais de alimentos e bebidas",
+    "Festas religiosas",
+    "outros",
+  ],
+  "meuform"
+);
+
+generateRadioQuestion(
+  "Voce já ouviu falar no termo reforma Urbana, o que vc imagina que seja isso?",
+  ["Sim", "Não"],
+  "meuform"
+  // ADICIONAR UM INPUT PARA ESCREVER O QUE A PESSOA ACHA
+);
+
+generateTextInputQuestion(
+  "Sobre o tema de cidade e cultura, que tipo de diretriz deveria ser estabelecida para ser incorporda num futuro plano nacional de cultura?",
   "meuform"
 );
 
 generateTextInputQuestion(
-  "Como você acredita que o direito à cidade pode ser promovido para garantir espaços inclusivos e acessíveis para as culturas periféricas?",
+  "Sobre o tema de valorizaçao das culturas periféricas, que tipo de diretriz deveria ser estabelecida para ser incorporda num futuro plano nacional de cultura?",
   "meuform"
 );
 
 generateTextInputQuestion(
-  "Vocês já realizaram parcerias ou colaborações com outras organizações ou grupos? Se sim, quais?",
+  "Sobre o tema de apoio à conservação e e memória dos centros históricos, que diretriz deveria ser estabelecida para ser incorporda num futuro plano nacional de cultura?",
   "meuform"
 );
 
 generateTextInputQuestion(
-  "As culturas periféricas impactam positivamente a sociedade e as comunidades locais? De que forma?",
+  "Sobre resolver problema da ausencia de mobilidade adequada para acessar equipamentos culturais, como a cultura pode auxiliar nisso?",
   "meuform"
 );
 
 generateTextInputQuestion(
-  "As atividades culturais do seu coletivo promovem a conscientização, a inclusão social e a participação cidadã?",
+  "Como a questão da segurança alimentar se relaciona com a cultura?",
   "meuform"
 );
 
 generateTextInputQuestion(
-  "Quais são os principais desafios que seu coletivo enfrenta ao promover suas atividades culturais?",
+  "A rua ocupada e cheia de atividades culturais traz mais segurança para as pessoas?",
   "meuform"
 );
-
-generateTextInputQuestion(
-  "Que tipo de apoio ou recursos seriam mais úteis para o seu coletivo superar esses desafios?",
-  "meuform"
-);
-
-generateTextInputQuestion(
-  "Existe algo mais que você gostaria de compartilhar sobre a interseção entre culturas periféricas, direito à cidade e políticas culturais?",
-  "meuform"
-);
-
-// generateRadioQuestion(
-//   "Faz quantos anos que a sua organização atua na comunidade? <span class='simples'>Obrigatório</span>",
-//   ["0 - 1 ano", "1 - 2 anos", "2 - 5 anos", "5 - 10 anos", "10 - 20 anos"],
-//   "meuform"
-// );
-
-// generateRadioQuestion(
-//   "Essa organização/coletivo possui CNPJ? <span class='simples'>Obrigatório</span>",
-//   ["Sim", "Não", "Estamos em processo"],
-//   "meuform"
-// );
-
-// generateCheckboxQuestion(
-//   "Sua organização já acessou recursos financeiros para desenvolver as atividades? <span class='simples'>Obrigatório</span>",
-//   [
-//     "Sim, já acessamos recursos publicos",
-//     "Sim, já acessamos recursos de empresas/organizações privadas",
-//     "Sim, já acessamos recursos de organizações sem fins lucrativos",
-//     "Não, nunca acessamos recursos",
-//   ],
-//   "meuform"
-// );
