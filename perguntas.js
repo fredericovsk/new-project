@@ -267,4 +267,3 @@ generateTextInputQuestion(
   "A rua ocupada e cheia de atividades culturais traz mais segurança para as pessoas?",
   "meuform"
 );
-
