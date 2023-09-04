@@ -1,5 +1,4 @@
-// Função para gerar perguntas de input tipo texto
-function generateTextInputQuestion(questionText, targetId) {
+function generateTextInputQuestion(questionText, targetId, maxLength) {
   const questionDiv = document.createElement("div");
   questionDiv.innerHTML = `<label>${questionText}</label>`;
 
@@ -7,6 +6,18 @@ function generateTextInputQuestion(questionText, targetId) {
   inputField.type = "text";
   inputField.name = `question${questionCount}`;
   inputField.placeholder = "Digite aqui sua resposta";
+
+  if (typeof maxLength === "number" && maxLength > 0) {
+    inputField.maxLength = maxLength;
+  }
+
+  inputField.addEventListener("input", function () {
+    const texto = this.value;
+
+    if (texto.length > maxLength) {
+      this.value = texto.slice(0, maxLength);
+    }
+  });
 
   questionDiv.appendChild(inputField);
   document.getElementById(targetId).appendChild(questionDiv);
@@ -48,6 +59,51 @@ function generateRadioQuestion(questionText, options, targetId) {
         ${option}
       `;
     questionDiv.appendChild(optionLabel);
+  });
+
+  document.getElementById(targetId).appendChild(questionDiv);
+}
+
+// Função para gerar perguntas tipo radio com campo de texto condicional
+function generateRadioQuestionWithTextInput(
+  questionText,
+  options,
+  targetId,
+  placeholder
+) {
+  const questionDiv = document.createElement("div");
+  questionDiv.innerHTML = `<label>${questionText}</label>`;
+
+  options.forEach((option, index) => {
+    const optionLabel = document.createElement("label");
+    optionLabel.innerHTML = `
+      <input type="radio" name="question${questionCount}" value="${index}" ${
+      option === "Sim" ? 'data-show-input="true"' : ""
+    }>
+      ${option}
+    `;
+    questionDiv.appendChild(optionLabel);
+
+    if (option === "Sim") {
+      const textInput = document.createElement("input");
+      textInput.type = "text";
+      textInput.name = `question${questionCount}_text`;
+      textInput.placeholder = placeholder || "Digite aqui sua resposta";
+      textInput.style.display = "none";
+
+      // Adicione um ouvinte de evento para mostrar/ocultar o campo de texto
+      optionLabel
+        .querySelector('input[type="radio"]')
+        .addEventListener("change", () => {
+          if (textInput.style.display === "none") {
+            textInput.style.display = "block";
+          } else {
+            textInput.style.display = "none";
+          }
+        });
+
+      questionDiv.appendChild(textInput);
+    }
   });
 
   document.getElementById(targetId).appendChild(questionDiv);
@@ -148,16 +204,17 @@ generateTextInputQuestion(
   "meuform"
 );
 
-generateRadioQuestion(
+generateRadioQuestionWithTextInput(
   "Você integra algum coletivo ou iniciativa relacionada à área da cultura?",
   ["Sim", "Não"],
-  "meuform"
+  "meuform",
+  "Qual o nome do seu coletivo?"
 );
 
-// Limitar à 20 letras
 generateTextInputQuestion(
   "Qual a primeira palavra que vem a cabeça ao pensar em cultura e cidade?",
-  "meuform"
+  "meuform",
+  20
 );
 
 generateCheckboxQuestion(
@@ -174,11 +231,11 @@ generateCheckboxQuestion(
   "meuform"
 );
 
-generateRadioQuestion(
+generateRadioQuestionWithTextInput(
   "Voce já ouviu falar no termo reforma Urbana, o que vc imagina que seja isso?",
   ["Sim", "Não"],
-  "meuform"
-  // ADICIONAR UM INPUT PARA ESCREVER O QUE A PESSOA ACHA
+  "meuform",
+  "O que você ouviu falar sobre reforma urbana?"
 );
 
 generateTextInputQuestion(
