@@ -344,6 +344,7 @@ div > form {
 
 @media (max-width: 390px) {
   body {
+    max-width: 390px;
     font-family: "Open Sans", sans-serif;
     margin: 0 0rem 0 0rem;
     padding: 0;
