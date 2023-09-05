@@ -190,7 +190,7 @@ const questionCount = 1;
 // );
 
 generateTextInputQuestion(
-  "Qual o seu nome? <span class='simples'> Obrigatório?</span>",
+  "Qual o seu nome? <span class='simples'> Obrigatório</span>",
   "meuform"
 );
 
